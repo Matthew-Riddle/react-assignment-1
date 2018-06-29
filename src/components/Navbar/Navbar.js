@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 
+import classes from './Navbar.css'
+
+import profileImg from '../../Matthew.jpg'
+
 class Navbar extends Component {
   render () {
     return (
-      <header id='navigation'>
+      <header id={classes.Navigation}>
 
-        <div className='content-wrap'>
-          <div className='header-left'>
+        <div className={classes.ContentWrap}>
+          <div className={classes.HeaderLeft}>
             <a href='./tweeter.html'>
               <i className='fas fa-home' />Home
             </a>
@@ -21,29 +25,29 @@ class Navbar extends Component {
             </a>
           </div>
 
-          <div className='header-center'>
+          <div className={classes.HeaderCenter}>
             <i className='fab fa-twitter' />
           </div>
 
-          <div className='header-right'>
+          <div className={classes.HeaderRight}>
             <input
               type='text'
               placeholder='Search..'
-              id='search'
-              className='header-right navigation'
+              id={classes.Search}
+              className={`${classes.HeaderRight} ${classes.Navigation}`} // {classes.HeaderRight + ' ' + classes.Navigation}
             />
-            <div className='header-right search-img'>
+            <div className={`${classes.HeaderRight} ${classes.SearchImg}`}>
               <i className='fas fa-search' />
             </div>
             <img
-              src='./Matthew.jpg'
+              src={profileImg}
               alt='Matthew Riddle'
-              className='navigation header-right nav-profile-img'
+              className={`${classes.Navigation} ${classes.HeaderRight} ${classes.NavProfileImg}`}
             />
             <button
               type='button'
               name='Twit'
-              className='navigation header-right jelly-button'
+              className={`${classes.Navigation} ${classes.HeaderRight} ${classes.JellyButton}`}
             >
               Tweet
             </button>
