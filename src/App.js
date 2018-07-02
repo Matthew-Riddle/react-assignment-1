@@ -3,6 +3,7 @@ import classes from './App.css'
 
 import Navbar from './components/Navbar/Navbar'
 import Body from './components/Body/Body'
+import SmallContainer from './components/Body/SmallContainer/SmallContainer'
 // import Home from './containers/Home/Home'
 // import Section from './components/Section/Section'
 
@@ -17,6 +18,7 @@ class App extends Component {
       <div className='App'>
         <Navbar />
         <Body />
+
       </div>
     )
   }
