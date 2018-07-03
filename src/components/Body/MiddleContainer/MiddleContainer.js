@@ -5,6 +5,22 @@ import profileImg from '../../../Matthew.jpg'
 import Tweet from './Tweet/Tweet'
 
 class MiddleContainer extends Component {
+  state = {
+    value: ''
+  }
+
+  inputChangeHandler = e => {
+    this.setState({
+      value: e.target.value
+    })
+  }
+
+  keyPressed = e => {
+    if (e.key === 'Enter') {
+      this.props.createTweet(this.state.value)
+      this.setState({ value: '' })
+    }
+  }
   render () {
     return (
       <div className={classes.MiddleContainer}>
@@ -19,6 +35,9 @@ class MiddleContainer extends Component {
             placeholder='Whats Happening?'
             id={classes.MidSearch}
             className={`${classes.MiddleContainer} ${classes.Navigation}`}
+            value={this.state.value}
+            onChange={this.inputChangeHandler}
+            onKeyPress={this.keyPressed}
           />
         </div>
         <div className={classes.MiddleContent}>

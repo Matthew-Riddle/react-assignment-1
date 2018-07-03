@@ -13,7 +13,10 @@ class Body extends Component {
           <LeftContent />
         </SmallContainer>
 
-        <MiddleContainer tweets={this.props.tweets} />
+        <MiddleContainer
+          tweets={this.props.tweets}
+          createTweet={this.props.createTweet}
+        />
         <SmallContainer classes={SmallContainerCss.RightContainer}>
           <RightContent />
         </SmallContainer>

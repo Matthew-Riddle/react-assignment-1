@@ -33,6 +33,22 @@ class App extends Component {
     ]
   }
 
+  createTweet = text => {
+    const tweets = [
+      {
+        avatar: profileImg,
+        title: '',
+        content: text,
+        img: ''
+      },
+      ...this.state.tweets
+    ]
+
+    this.setState(prevState => ({
+      tweets
+    }))
+  }
+
   render () {
     return (
       <div className={classes.App}>
@@ -41,7 +57,9 @@ class App extends Component {
           <Route
             exact
             path='/'
-            render={() => <Body tweets={this.state.tweets} />}
+            render={() => (
+              <Body tweets={this.state.tweets} createTweet={this.createTweet} />
+            )}
           />
           <Route path='/Moments' render={() => <Moments />} />
         </Switch>
