@@ -1,21 +1,24 @@
 import React from 'react'
-import classes from '../SmallContainer.css'
+import classes from './LeftContent.css'
 import profileImg from '../../../../Matthew.jpg'
 const LeftContent = props => {
   return (
-    <div class='wrap'>
-      <div class={classes.ProfileBox}>
-        <div class={classes.BlueDecor} />
+    <div className='wrap'>
+      <div className={classes.ProfileBox}>
+        <div className={classes.BlueDecor} />
         <img
           src={profileImg}
           alt='Matthew Riddle'
-          class={`${classes.LeftContainer} ${classes.ProfileBox} ${classes.ProfileImg}`}
+          className={`${classes.LeftContainer} ${classes.ProfileBox} ${classes.ProfileImg}`}
         />
-        <h1>Matthew Riddle</h1>
-        <p>@mriddle</p>
+
+        <div className={classes.ProfileStats}>
+          <h1>Matthew Riddle</h1>
+          <p>@mriddle</p>
+        </div>
       </div>
 
-      <div class={classes.TrendsLeft}>
+      <div className={classes.TrendsLeft}>
         <h1>Trends for you</h1>
       </div>
     </div>

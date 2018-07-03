@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-
 import classes from './Navbar.css'
-
+import { Link } from 'react-router-dom'
 import profileImg from '../../Matthew.jpg'
 
 class Navbar extends Component {
@@ -11,12 +10,12 @@ class Navbar extends Component {
 
         <div className={classes.ContentWrap}>
           <div className={classes.HeaderLeft}>
-            <a href='./tweeter.html'>
+            <Link to='/'>
               <i className='fas fa-home' />Home
-            </a>
-            <a href='./moments.html'>
+            </Link>
+            <Link to='/Moments'>
               <i className='fas fa-bolt' />Moments
-            </a>
+            </Link>
             <a href='./notifications.html'>
               <i className='fas fa-bell' />Notifications
             </a>

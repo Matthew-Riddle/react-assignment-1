@@ -1,27 +1,54 @@
 import React, { Component } from 'react'
 import classes from './App.css'
+import profileImg from './Matthew.jpg'
+import downs from './Downs.jpg'
 
 import Navbar from './components/Navbar/Navbar'
 import Body from './components/Body/Body'
-import SmallContainer from './components/Body/SmallContainer/SmallContainer'
-// import Home from './containers/Home/Home'
-// import Section from './components/Section/Section'
-
-// import createImage from './img/create.jpg'
-// import exploreImage from './img/explore.jpg'
-// import shareImage from './img/share.jpg'
+import { Switch, Route } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import Moments from './components/Moments/Moments'
 
 class App extends Component {
+  state = {
+    tweets: [
+      {
+        avatar: downs,
+        title: 'Its all ogre now',
+        content: 'Rip',
+        img: downs
+      },
+      {
+        avatar: profileImg,
+        title: 'Its all ogre now',
+        content: 'Rip',
+        img: downs
+      },
+      {
+        avatar: '',
+        title: 'Its all ogre now',
+        content: 'Rip',
+        img: ''
+      }
+    ]
+  }
+
   render () {
-    // <div className={classes.App}>
     return (
-      <div className='App'>
+      <div className={classes.App}>
         <Navbar />
-        <Body />
+        <Switch>
+          <Route
+            exact
+            path='/'
+            render={() => <Body tweets={this.state.tweets} />}
+          />
+          <Route path='/Moments' render={() => <Moments />} />
+        </Switch>
 
       </div>
     )
   }
 }
 
-export default App
+export default withRouter(App)

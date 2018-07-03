@@ -1,4 +1,4 @@
-#RightContainer {
+.RightContainer {
     display: inline-block;
     width: 25%;
     position: relative;
@@ -15,12 +15,14 @@
 
 .TopRight h1 {
     font-size: 18px;
+    text-align: left;
 }
 
 .InfoOnRight {
     padding: 10px;
     background: white;
     height: 200px;
+    text-align: left;
 }
 
 .InfoOnRight p {
