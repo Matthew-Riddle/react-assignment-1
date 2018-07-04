@@ -8,6 +8,7 @@ import Body from './components/Body/Body'
 import { Switch, Route } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import Moments from './components/Moments/Moments'
+import axios from './axios-instance'
 
 class App extends Component {
   state = {
@@ -37,16 +38,30 @@ class App extends Component {
     const tweets = [
       {
         avatar: profileImg,
-        title: '',
+        title: 'Matthew Riddle',
         content: text,
         img: ''
       },
       ...this.state.tweets
     ]
+    axios.put('tweets.json', tweets).then(() => {
+      this.setState(prevState => ({
+        tweets
+      }))
+    })
+  }
 
-    this.setState(prevState => ({
-      tweets
-    }))
+  componentDidMount () {
+    axios.get('tweets.json').then(response => {
+      const tweets = response.data
+      console.log(this.state)
+      console.log(tweets)
+      this.setState(prevState => ({
+        ...prevState,
+        tweets
+      }))
+      console.log(this.state)
+    })
   }
 
   render () {
