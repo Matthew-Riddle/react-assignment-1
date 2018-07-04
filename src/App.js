@@ -9,46 +9,40 @@ import { Switch, Route } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import Moments from './components/Moments/Moments'
 import axios from './axios-instance'
+import uuid from 'uuid'
 
 class App extends Component {
   state = {
-    tweets: [
-      {
-        avatar: downs,
-        title: 'Its all ogre now',
-        content: 'Rip',
-        img: downs
-      },
-      {
-        avatar: profileImg,
-        title: 'Its all ogre now',
-        content: 'Rip',
-        img: downs
-      },
-      {
-        avatar: '',
-        title: 'Its all ogre now',
-        content: 'Rip',
-        img: ''
-      }
-    ]
+    tweets: []
   }
 
   createTweet = text => {
-    const tweets = [
-      {
+    const key = uuid.v4()
+    const tweets = {
+      [key]: {
+        id: key,
         avatar: profileImg,
         title: 'Matthew Riddle',
         content: text,
         img: ''
       },
       ...this.state.tweets
-    ]
+    }
     axios.put('tweets.json', tweets).then(() => {
       this.setState(prevState => ({
         tweets
       }))
     })
+  }
+
+  deleteTweet = id => {
+    axios.delete(`tweets/${id}.json`).then(() =>
+      this.setState(prevState => ({
+        tweets: Object.values(prevState.tweets).filter(
+          tweet => tweet.id !== id
+        )
+      }))
+    )
   }
 
   componentDidMount () {
@@ -73,7 +67,11 @@ class App extends Component {
             exact
             path='/'
             render={() => (
-              <Body tweets={this.state.tweets} createTweet={this.createTweet} />
+              <Body
+                tweets={this.state.tweets}
+                createTweet={this.createTweet}
+                deleteTweet={this.deleteTweet}
+              />
             )}
           />
           <Route path='/Moments' render={() => <Moments />} />

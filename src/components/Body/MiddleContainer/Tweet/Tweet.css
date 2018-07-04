@@ -5,6 +5,22 @@
     float: left;
     padding: 0;
     margin: 10px;
+}
 
+.Dropdown {
+}
 
+.Tweet {
+    display: flex;
+    flex-direction: column;
+}
+
+.TweetWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.TweetTitle {
+    margin-left: 0;
+    margin-right: auto;
 }

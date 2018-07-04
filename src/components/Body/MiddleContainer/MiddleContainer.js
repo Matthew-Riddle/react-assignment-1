@@ -49,13 +49,15 @@ class MiddleContainer extends Component {
             img={downs}
           /> */}
 
-          {this.props.tweets.map((tweet, idx) => (
+          {Object.values(this.props.tweets).map((tweet, idx) => (
             <Tweet
               key={idx}
+              id={tweet.id}
               avatar={tweet.avatar}
               title={tweet.title}
               content={tweet.content}
               img={tweet.img}
+              deleteTweet={this.props.deleteTweet}
             />
           ))}
         </div>

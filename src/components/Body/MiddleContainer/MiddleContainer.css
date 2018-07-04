@@ -89,4 +89,6 @@
 
 .MiddleContent p {
     overflow-wrap: break-word;
+    margin-left: 0;
+    width: 100%;
 }
